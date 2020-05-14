@@ -1,0 +1,13 @@
+<%= render "shared/analytics" %>
+<% if @login_required %>
+  <h1>Login To Band</h1>
+  <a href="<%= @login_link %>">Login</a>
+<% else %>
+  <h1>Select Band</h1>
+  <ul>
+    <% @bands.each do |band| %>
+      <li><a href="/band?band_key=<%= band["band_key"]%>"><%= band["name"] %></a></li>
+    <% end %>
+  </ul>
+  <p><a href="/logout">Logout</a></p>
+<% end %>

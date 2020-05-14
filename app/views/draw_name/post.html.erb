@@ -1,0 +1,19 @@
+<%= render "shared/analytics" %>
+<p><a href="/">Home</a>&nbsp;<a href="/band?band_key=<%= params["band_key"]%>">Band</a></p>
+<h1>Winner(s)</h1>
+<ul id="winners-list">
+  <% @winners.each_index do |idx| %>
+    <li>
+    <p><%= @winners[idx] %> <a href="/post_reroll?band_key=<%= params["band_key"]%>&post_key=<%= params["post_key"]%>&reroll=<%= idx %>">Reroll</a></p>
+    </li>
+  <% end %>
+</ul>
+<p><a href="/post_add?band_key=<%= params["band_key"]%>&post_key=<%= params["post_key"]%>">Add Winner</a></p>
+<p><a href="/post_reset?band_key=<%= params["band_key"]%>&post_key=<%= params["post_key"]%>">Reset All</a></p>
+<h1>All Commenters</h1>
+<ul>
+  <% @commenters.each do |commenter| %>
+    <li><%= commenter %></li>
+  <% end %>
+</ul>
+<p><a href="/post_refresh?band_key=<%= params["band_key"]%>&post_key=<%= params["post_key"]%>">Refresh List</a></p>

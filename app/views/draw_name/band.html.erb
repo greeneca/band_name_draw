@@ -1,0 +1,16 @@
+<%= render "shared/analytics" %>
+<p><a href="/">Home</a></p>
+<h1>Select Post</h1>
+<ul>
+  <% @posts.each do |post| %>
+    <li><a href="/post?band_key=<%= params["band_key"]%>&post_key=<%= post["post_key"]%>"><%= post["author"]["name"]%>: <%= truncate(post["content"])%></a></li>
+  <% end %>
+</ul>
+<p>
+<% if @previous %>
+  <a href="/band?band_key=<%= params["band_key"] %>&after=<%= @previous %>">Previous</a>
+<% end %>
+<% if @next %>
+  <a href="/band?band_key=<%= params["band_key"] %>&after=<%= @next %>">Next</a>
+<% end %>
+</p>
