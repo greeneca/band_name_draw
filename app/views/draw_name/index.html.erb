@@ -1,7 +1,12 @@
 <%= render "shared/analytics" %>
 <% if @login_required %>
   <h1>Login To Band</h1>
-  <a href="<%= @login_link %>">Login</a>
+  <h1><a href="<%= @login_link %>">Login</a></h1>
+
+  <h3>Discalmer:</h3>
+  <p>This application does not collect or have access to your Band credentials.
+  Credentials are entered on the Band website. The Band application will send  a
+  token to this application to allow access.</p>
 <% else %>
   <h1>Select Band</h1>
   <ul>
@@ -11,3 +16,4 @@
   </ul>
   <p><a href="/logout">Logout</a></p>
 <% end %>
+
